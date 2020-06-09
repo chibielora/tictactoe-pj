@@ -3,8 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const createGame = function (data) {
-  console.log('data: ', data)
+const createGame = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
@@ -46,7 +45,7 @@ const destroyGame = function (id) {
   })
 }
 
-const updateGame = function (data) {
+const updateGame = function (cellIndex, cellValue, over) {
   return $.ajax({
     url: config.apiUrl + '/games/' + data.game.id,
     method: 'PATCH',
@@ -56,10 +55,10 @@ const updateGame = function (data) {
     data: {
       'game': {
         'cell': {
-          'index': 0,
-          'value': 'x'
+          'index': cellIndex,
+          'value': cellValue
         },
-        over: false
+        over: over
       }
     }
     // data: data

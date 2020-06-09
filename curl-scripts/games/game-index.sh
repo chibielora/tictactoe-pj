@@ -1,7 +1,7 @@
-API="https://tic-tac-toe-wdi.herokuapp.com"
+API="https://tic-tac-toe-api.herokuapp.com"
 URL_PATH="/games"
 
-curl "${API}${URL_PATH}/${ID}" \
+curl "${API}${URL_PATH}" \
   --include \
   --request GET \
   --header "Content-Type: application/json" \

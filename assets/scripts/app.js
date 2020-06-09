@@ -14,15 +14,15 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
 })
 
-// const gameEvents = require('./games/game-events')
-// $(() => {
-//   // $('#play-game').on('submit', gameEvents.onCreateGame)
-//   // $('#container').hide()
-//   // $('#main').hide()
-//   // $('.box').on('click', gamesEvents.onUpdateGame)
-//   // // $('#new-game').on('submit', gamesEvents.onCreateGame)
-//   // $('#stats').on('submit', gamesEvents.onGetGames)
-// })
+const gameEvents = require('./games/game-events')
+$(() => {
+  // $('#play-game').on('submit', gameEvents.onCreateGame)
+  // $('#container').hide()
+  // $('#main').hide()
+  // $('.box').on('click', gameEvents.onUpdateGame)
+  // // $('#new-game').on('submit', gamesEvents.onCreateGame)
+  // $('#stats').on('submit', gameEvents.onGetGames)
+})
 
 const X = 'x'
 const O = 'o'
@@ -38,24 +38,32 @@ const arrayCombinations = [
 ]
 
 const content = $('.square')
-const winMessage = $('#wins-game-text')
+const winMessageText = $('#winsGameText')
+const winMessageElement = $('#winningMessage')
 const restartButton = $('#restart')
 let xTurn
-startGame()
 
+startGame()
 restartButton.on('click', startGame)
 
 function onClick (e) {
   const square = e.target
+  console.log(square.dataset.index)
   const currentPlayer = xTurn ? X : O
+  let gameIsOver
   placeIcon(square, currentPlayer)
   if (checkWin(currentPlayer)) {
     gameOver(false)
+    gameIsOver = true
   } else if (gameDraw()) {
     gameOver(true)
+    gameIsOver = true
   } else {
     currentTurn()
+    gameIsOver = false
   }
+  // updateGame(index, currentPlayer, gameIsOver)
+
 }
 
 function startGame () {
@@ -65,15 +73,16 @@ function startGame () {
     square.removeEventListener('click', onClick)
     square.addEventListener('click', onClick, { once: true })
   })
+  winMessageElement.removeClass('show')
 }
 
 function gameOver (draw) {
   if (draw) {
-    winMessage.text("It's a Draw!")
+    winMessageText.text("It's a Draw!")
   } else {
-    winMessage.text(`${xTurn ? 'X ' : 'O '} Wins!`)
+    winMessageText.text(`${xTurn ? 'X ' : 'O '} Wins!`)
   }
-  winMessage.addClass('show')
+  winMessageElement.addClass('show')
 }
 
 function gameDraw () {

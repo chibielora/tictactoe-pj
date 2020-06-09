@@ -1,7 +1,5 @@
 'use strict'
 
-const getFormFields = require(`../../../lib/get-form-fields`)
-
 const api = require('./game-api')
 const ui = require('./game-ui')
 
@@ -9,13 +7,8 @@ const onCreateGame = function (event) {
   event.preventDefault()
   api.createGame()
     .then(ui.onCreateSuccess)
-    .catch(ui.onCreateSuccess)
-  console.log('onCreateGame ran!')
-
-  const data = getFormFields(event.target)
-  api.create(data)
-    .then(ui.onCreateSuccess)
     .catch(ui.onCreateFailure)
+  console.log('onCreateGame ran!')
 }
 
 const onIndexGames = function (event) {

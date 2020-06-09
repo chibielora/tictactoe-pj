@@ -1,5 +1,5 @@
-API="https://tic-tac-toe-wdi.herokuapp.com"
-URL_PATH="/games"
+API="https://tic-tac-toe-api.herokuapp.com"
+URL_PATH="/games/:id"
 
 curl "${API}${URL_PATH}/${ID}" \
   --include \
@@ -7,13 +7,13 @@ curl "${API}${URL_PATH}/${ID}" \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
-      "game": {
-        "cell": {
-            "index": 0,
-            "value": "x"
-    },
-    "over": false
-  }
-}'
+    "game": {
+      "cell": {
+        "index": 0,
+        "value": "x"
+      },
+      "over": false
+    }
+  }'
 
 echo

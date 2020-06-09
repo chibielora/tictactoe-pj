@@ -1,5 +1,5 @@
 
-curl "https://tic-tac-toe-wdi.herokuapp.com/sign-out" \
+curl "https://tic-tac-toe-api.herokuapp.com/sign-out" \
   --include \
   --request DELETE \
 

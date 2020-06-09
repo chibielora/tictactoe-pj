@@ -7,37 +7,38 @@ development.
 
 To help solve that problem, we've included a function called `getFormFields` in
 this template. Let's take a look at how to use that function. In this example,
-the user is inputting information about a book.
+the user is inputting information about a game.
 
 First, your `<input>`s will need to be wrapped in a `<form>`, like this:
 
 ```html
-<form id="create-book">
-  <input name="book[title]" type="text">
-  <input name="book[author]" type="text">
-  <button type="submit">Create Book</button>
+<form id="create-user">
+  <input name="credentials[email]" type="text" value="an@example.email">
+  <input name="credentials[password]" type="password" value="an example password">
+  <input name="credentials[password_confirmation]" type="password" value="an example password">
+  <button type="submit">Create User</button>
 </form>
 ```
 Then, in your Javascript, you'd do something like this:
 
 ```js
-const getFormFields = require('<path to lib>/get-form-fields.js')
+const getFormFields = require('../../../lib/get-form-fields')
 
-$('#create-book').on('submit', function (event) {
+$('#create-user').on('submit', function (event) {
   event.preventDefault()
 
   const form = event.target
-  const bookData = getFormFields(form)
+  const userData = getFormFields(form)
 })
 ```
 
-Then, the `bookData` variable would look like this:
+Then, the `userData` variable would look like this:
 
 ```js
 {
-  book: {
-    title: "<whatever was entered in the title input >",
-    author: "<whatever was entered in the author input>"
+  user: {
+    name: "<whatever was entered in the name input >",
+    password: "<whatever was entered in the password input>"
   }
 }
 ```
