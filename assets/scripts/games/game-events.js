@@ -2,11 +2,14 @@
 
 const getFormFields = require(`../../../lib/get-form-fields`)
 
-const api = require('./api')
-const ui = require('./ui')
+const api = require('./game-api')
+const ui = require('./game-ui')
 
 const onCreateGame = function (event) {
   event.preventDefault()
+  api.createGame()
+    .then(ui.onCreateSuccess)
+    .catch(ui.onCreateSuccess)
   console.log('onCreateGame ran!')
 
   const data = getFormFields(event.target)
@@ -19,7 +22,7 @@ const onIndexGames = function (event) {
   event.preventDefault()
   console.log('onIndexGames ran!')
 
-  api.index()
+  api.indexGame()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
 }
@@ -32,7 +35,7 @@ const onShowGame = function (event) {
   const game = data.game
 
   if (game.id.length !== 0) {
-    api.show(game)
+    api.showGame(game)
       .then(ui.onShowSuccess)
       .catch(ui.onShowFailure)
   } else {
@@ -50,7 +53,7 @@ const onDeleteGame = function (event) {
   const game = data.game
 
   if (game.id.length !== 0) {
-    api.destroy(game.id)
+    api.destroyGame(game.id)
       .then(ui.onDeleteSuccess)
       .catch(ui.onDeleteFailure)
   } else {
@@ -74,7 +77,7 @@ const onUpdateGame = function (event) {
     return false
   }
   if (game.id.length !== 0) {
-    api.update(data)
+    api.updateGame(data)
       .then(ui.onUpdateSuccess)
       .catch(ui.onUpdateFailure)
   } else {

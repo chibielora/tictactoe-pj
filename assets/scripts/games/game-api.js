@@ -3,7 +3,7 @@
 const config = require('../config')
 const store = require('../store')
 
-const create = function (data) {
+const createGame = function (data) {
   console.log('data: ', data)
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -11,12 +11,12 @@ const create = function (data) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: ''
     // data: data
   })
 }
 
-const index = function () {
+const indexGame = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
@@ -26,7 +26,7 @@ const index = function () {
   })
 }
 
-const show = function (game) {
+const showGame = function (game) {
   return $.ajax({
     url: config.apiUrl + '/games/' + game.id,
     method: 'GET',
@@ -36,7 +36,7 @@ const show = function (game) {
   })
 }
 
-const destroy = function (id) {
+const destroyGame = function (id) {
   return $.ajax({
     url: config.apiUrl + '/games/' + id,
     method: 'DELETE',
@@ -46,22 +46,30 @@ const destroy = function (id) {
   })
 }
 
-const update = function (data) {
+const updateGame = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games/' + data.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    data: {
+      'game': {
+        'cell': {
+          'index': 0,
+          'value': 'x'
+        },
+        over: false
+      }
+    }
     // data: data
   })
 }
 
 module.exports = {
-  create,
-  index,
-  show,
-  destroy,
-  update
+  createGame,
+  indexGame,
+  showGame,
+  destroyGame,
+  updateGame
 }

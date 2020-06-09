@@ -14,6 +14,16 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
 })
 
+// const gameEvents = require('./games/game-events')
+// $(() => {
+//   // $('#play-game').on('submit', gameEvents.onCreateGame)
+//   // $('#container').hide()
+//   // $('#main').hide()
+//   // $('.box').on('click', gamesEvents.onUpdateGame)
+//   // // $('#new-game').on('submit', gamesEvents.onCreateGame)
+//   // $('#stats').on('submit', gamesEvents.onGetGames)
+// })
+
 const X = 'x'
 const O = 'o'
 const arrayCombinations = [
