@@ -25,9 +25,9 @@ const indexGame = function () {
   })
 }
 
-const showGame = function (game) {
+const showGame = function () {
   return $.ajax({
-    url: config.apiUrl + '/games/' + game.id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -35,9 +35,9 @@ const showGame = function (game) {
   })
 }
 
-const destroyGame = function (id) {
+const destroyGame = function () {
   return $.ajax({
-    url: config.apiUrl + '/games/' + id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -47,16 +47,16 @@ const destroyGame = function (id) {
 
 const updateGame = function (cellIndex, cellValue, over) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + data.game.id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
-      'game': {
-        'cell': {
-          'index': cellIndex,
-          'value': cellValue
+      game: {
+        cell: {
+          index: cellIndex,
+          value: cellValue
         },
         over: over
       }

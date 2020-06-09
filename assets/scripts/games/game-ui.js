@@ -1,9 +1,13 @@
 'use strict'
 
+const store = require('../store')
+
 const onCreateSuccess = function (data) {
-  $('#message').text('Game successfully created')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#game-board').show()
+  $('#winning-message').hide()
+  $('.square').removeClass('x o')
+  store.game = data.game
+  console.log(store)
   console.log('onCreateSuccess ran. Data is :', data)
 }
 
@@ -18,7 +22,7 @@ const onIndexSuccess = function (data) {
   $('#message').text('All games successfully received')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('onIndexSuccess ran. Data is :', data.Games)
+  console.log('onIndexSuccess ran. Data is :', data.games)
 }
 
 const onIndexFailure = function (error) {

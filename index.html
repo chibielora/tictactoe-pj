@@ -56,9 +56,9 @@
       <button id="start-button" type="submit">Play!</button>
     </form>
     <!-- This is where the board goes -->
-    <p>A game by Elorha Newcomb</p>
-    <div class="main">
+    <div class="main" id="game-board">
       <h1>Tic Tac Toe</h1>
+      <h3>A game by Elorha Newcomb</h3>
       <div class="ttt-container" id="container">
         <div class="square" data-index="0"></div>
         <div class="square" data-index="1"></div>
@@ -75,8 +75,8 @@
       <p class="total">Total Games</p>
     </div>
     <!-- Reset Button -->
-    <div class="wins-game" id="winningMessage">
-      <div id="winsGameText">X wins!</div>
+    <div class="wins-game" id="winning-message">
+      <div id="wins-game-text"></div>
       <button id="restart">Play Again!</button>
     </div>
   </div>

@@ -20,6 +20,8 @@ const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#logged-out-screen').hide()
+  $('#logged-in-screen').show()
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }

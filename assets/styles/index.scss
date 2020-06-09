@@ -94,7 +94,7 @@ occupied:hover {
 }
 
 .wins-game {
-  display: none;
+  display: flex;
   position: fixed;
   top: 0;
   right: 0;
@@ -106,10 +106,6 @@ occupied:hover {
   color: white;
   font-size: 5rem;
   flex-direction: column;
-} 
-
-.wins-game.show {
-  display: flex;
 }
 
 .wins-game button {
@@ -156,9 +152,9 @@ occupied:hover {
 
 // Hiding windows
 .hide-game {
-  display: none;
+  display: block;
 }
 
 .show-game {
-  display: block;
+  display: none;
 } 
