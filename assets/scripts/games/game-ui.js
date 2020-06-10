@@ -7,6 +7,7 @@ const onCreateSuccess = function (data) {
   $('#winning-message').hide()
   $('.square').removeClass('x o')
   store.game = data.game
+  store.game.currentTurn = 'x'
   console.log(store)
   console.log('onCreateSuccess ran. Data is :', data)
 }
@@ -60,8 +61,8 @@ const onDestroyFailure = function (error) {
   console.error('onDestroyFailure ran. Error is :', error)
 }
 
-const onUpdateSuccess = function () {
-  $('#message').text('Game successfully updated')
+const onUpdateSuccess = function (xTurn) {
+  $('#message').text(xTurn ? "X's turn" : "O's turn")
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('Game successfully updated')
@@ -74,6 +75,15 @@ const onUpdateFailure = function (error) {
   console.error('onUpdateFailure ran. Error is :', error)
 }
 
+const onInvalidSpace = function () {
+  $('#invalid-move').show()
+  $('#invalid-move').text("Can't play in this spot")
+  setTimeout(() => {
+    $('#invalid-move').fadeOut(500)
+  }, 300)
+  $('#invalid-move').removeClass()
+}
+
 module.exports = {
   onCreateSuccess,
   onCreateFailure,
@@ -84,5 +94,6 @@ module.exports = {
   onDestroySuccess,
   onDestroyFailure,
   onUpdateSuccess,
-  onUpdateFailure
+  onUpdateFailure,
+  onInvalidSpace
 }

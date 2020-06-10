@@ -5,7 +5,7 @@ const ui = require('./game-ui')
 
 const X = 'x'
 const O = 'o'
-let xTurn = false
+let xTurn
 const arrayCombinations = [
   [0, 1, 2],
   [3, 4, 5],
@@ -40,7 +40,7 @@ function placeIcon (square, currentPlayer) {
   square.classList.add(currentPlayer)
 }
 
-function currentTurn () {
+function changeTurn () {
   xTurn = !xTurn
 }
 
@@ -56,33 +56,36 @@ const onCreateGame = function (event) {
   event.preventDefault()
   api.createGame()
     .then(ui.onCreateSuccess)
+    .then(() => {
+      xTurn = true
+    })
     .catch(ui.onCreateFailure)
   console.log('onCreateGame ran!')
 }
 
-const onIndexGames = function (event) {
-  event.preventDefault()
-  console.log('onIndexGames ran!')
+// const onIndexGames = function (event) {
+//   event.preventDefault()
+//   console.log('onIndexGames ran!')
 
-  api.indexGame()
-    .then(ui.onIndexSuccess)
-    .catch(ui.onIndexFailure)
-}
+//   api.indexGame()
+//     .then(ui.onIndexSuccess)
+//     .catch(ui.onIndexFailure)
+// }
 
-const onShowGame = function (event) {
-  event.preventDefault()
-  console.log('onShowGame ran!')
+// const onShowGame = function (event) {
+//   event.preventDefault()
+//   console.log('onShowGame ran!')
 
-  if (game.id.length !== 0) {
-    api.showGame()
-      .then(ui.onShowSuccess)
-      .catch(ui.onShowFailure)
-  } else {
-    $('#message').html('<p>Please provide a game id!</p>')
-    $('#message').css('background-color', 'red')
-    console.log('Please enter a game id!')
-  }
-}
+//   if (game.id.length !== 0) {
+//     api.showGame()
+//       .then(ui.onShowSuccess)
+//       .catch(ui.onShowFailure)
+//   } else {
+//     $('#message').html('<p>Please provide a game id!</p>')
+//     $('#message').css('background-color', 'red')
+//     console.log('Please enter a game id!')
+//   }
+// }
 
 const onUpdateGame = function (e) {
   event.preventDefault()
@@ -92,6 +95,7 @@ const onUpdateGame = function (e) {
   const currentPlayer = xTurn ? X : O
   let gameIsOver
   if (square.classList.contains(X) || square.classList.contains(O)) {
+    ui.onInvalidSpace()
     return
   }
   placeIcon(square, currentPlayer)
@@ -102,28 +106,13 @@ const onUpdateGame = function (e) {
     gameOver(true)
     gameIsOver = true
   } else {
-    currentTurn()
+    changeTurn()
     gameIsOver = false
   }
   // Game logic
   api.updateGame(square.dataset.index, currentPlayer, gameIsOver)
-    .then(ui.onUpdateSuccess)
+    .then(() => ui.onUpdateSuccess(xTurn))
     .catch(ui.onUpdateFailure)
-}
-
-const onDeleteGame = function (event) {
-  event.preventDefault()
-  console.log('onDeleteGame ran!')
-
-  if (game.id.length !== 0) {
-    api.destroyGame()
-      .then(ui.onDeleteSuccess)
-      .catch(ui.onDeleteFailure)
-  } else {
-    $('#message').html('<p>Please provide a game id!</p>')
-    $('#message').css('background-color', 'red')
-    console.log('Please provide an game id!')
-  }
 }
 
 const addHandlers = () => {

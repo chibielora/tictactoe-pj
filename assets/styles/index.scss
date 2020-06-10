@@ -144,10 +144,12 @@ occupied:hover {
 
 .success {
   background-color: var(--green);
+  color: white;
 }
 
 .failure {
   background-color: var(--red);
+  color: white;
 }
 
 // Hiding windows

@@ -38,6 +38,8 @@ const signOutSuccess = function () {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('form').trigger('reset')
+  $('#logged-in-screen').hide()
+  $('#logged-out-screen').show()
   console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
