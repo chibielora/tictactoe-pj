@@ -35,16 +35,6 @@ const showGame = function () {
   })
 }
 
-const destroyGame = function () {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.game._id,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 const updateGame = function (cellIndex, cellValue, over) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
@@ -69,6 +59,5 @@ module.exports = {
   createGame,
   indexGame,
   showGame,
-  destroyGame,
   updateGame
 }

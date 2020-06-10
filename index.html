@@ -24,7 +24,7 @@
         <input type="text" name="credentials[email]" placeholder="Email">
         <input type="password" name="credentials[password]" placeholder="Password">
         <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-        <input type="submit" value="Sign up!">
+        <input type="submit" value="Sign up! ">
       </fieldset>
     </form>
     <form id="sign-in" class="border">
@@ -32,7 +32,7 @@
         <legend>Sign in!</legend>
         <input type="text" name="credentials[email]" placeholder="Email">
         <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="submit" value="Sign in!">
+        <input type="submit" value="Sign in! ">
       </fieldset>
     </form>
   </div>
@@ -41,7 +41,7 @@
     <form id="sign-out" class="border">
       <fieldset>
         <legend>Sign Out!</legend>
-        <input type="submit" value="Sign out!">
+        <input type="submit" value="Sign out! ">
       </fieldset>
     </form>
     <form id="change-password" class="border">
@@ -49,14 +49,23 @@
         <legend>Change Password!</legend>
         <input type="password" name="passwords[old]" placeholder="Old Password">
         <input type="password" name="passwords[new]" placeholder="New Password">
-        <input type="submit" value="Change Password!">
+        <input type="submit" value="Change Password! ">
       </fieldset>
     </form>
-<!-- Create a new Game -->
-    <form id="play-game">
-      <button id="start-button" type="submit">Play!</button>
+<!-- Show previous games -->
+    <form id="show-game">
+      <fieldset>
+        <legend>Find previous games</legend>
+          <!-- <input type="submit" value="See Previous "> -->
+          <input type="text" name="game[id]" placeholder="Insert game id">
+      </fieldset>
     </form>
-    <!-- This is where the board goes -->
+    <!-- Create a new Game -->
+    <form id="play-game">
+      <legend>Start a new Game!</legend>
+      <input id="start-button" type="submit" value="Game Start! " name="game[new">
+    </form>
+<!-- This is where the board goes -->
     <div class="main" id="game-board">
       <h1>Tic Tac Toe</h1>
       <h3>A game by Elorha Newcomb</h3>
@@ -71,8 +80,8 @@
         <div class="square" data-index="7"></div>
         <div class="square" data-index="8"></div>
       </div>
-      <p class="player">Player Score</p>
-      <p class="computer">Computer Score</p>
+      <!-- <p class="player"></p>
+      <p class="computer"></p> -->
       <p class="total">Total Games</p>
     </div>
     <!-- Reset Button -->

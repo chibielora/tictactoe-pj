@@ -120,7 +120,6 @@ const addHandlers = () => {
   $('#restart').on('click', onCreateGame)
   // $('#game-index').on('submit', onIndexGames)
   // $('#game-show').on('submit', onShowGame)
-  // $('#game-delete').on('click', onDeleteGame)
   $('.square').on('click', onUpdateGame)
 }
 

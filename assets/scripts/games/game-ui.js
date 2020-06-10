@@ -47,20 +47,6 @@ const onShowFailure = function (error) {
   console.error('onShowFailure ran. Error is :', error)
 }
 
-const onDestroySuccess = function () {
-  $('#message').text('Game successfully deleted')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('Game successfully deleted')
-}
-
-const onDestroyFailure = function (error) {
-  $('#message').text('Error on deleting game')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('onDestroyFailure ran. Error is :', error)
-}
-
 const onUpdateSuccess = function (xTurn) {
   $('#message').text(xTurn ? "X's turn" : "O's turn")
   $('#message').removeClass()
@@ -91,8 +77,6 @@ module.exports = {
   onIndexFailure,
   onShowSuccess,
   onShowFailure,
-  onDestroySuccess,
-  onDestroyFailure,
   onUpdateSuccess,
   onUpdateFailure,
   onInvalidSpace

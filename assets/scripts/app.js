@@ -11,7 +11,6 @@ $(() => {
   // your JS code goes here
   authEvents.addHandlers()
   gameEvents.addHandlers()
-
   // Initial UI setup
   $('#game-board').hide()
   $('#winning-message').hide()
