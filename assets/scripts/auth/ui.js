@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const gameEvents = require('../games/game-events')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')

@@ -23,7 +23,8 @@ const onIndexSuccess = function (data) {
   $('#message').text('All games successfully received')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('onIndexSuccess ran. Data is :', data.games)
+  $('#total-score').text('You have played ' + data.games.length + ' games. ')
+  console.log('onIndexSuccess ran. Data is :', data.games.length)
   console.log('Only complete games: ', data.games.filter(game => {
     return game.over
   }))
@@ -36,7 +37,7 @@ const onIndexFailure = function (error) {
   console.error('onIndexFailure ran. Error is :', error)
 }
 
-const onUpdateSuccess = function (xTurn) {
+const onUpdateSuccess = function (xTurn, data) {
   $('#message').text(xTurn ? "X's turn" : "O's turn")
   $('#message').removeClass()
   $('#message').addClass('success')

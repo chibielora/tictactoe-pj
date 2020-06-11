@@ -84,9 +84,9 @@ const onIndexGames = function (event) {
 //   console.log(result)
 // }
 
-function totalScore (result) {
-  document.querySelector('#total-score').innerHTML = result
-}
+// function totalScore (result) {
+//   document.querySelector('#total-score').innerHTML = result
+// }
 
 const onUpdateGame = function (e) {
   event.preventDefault()
@@ -128,5 +128,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
+  onIndexGames,
   addHandlers
 }
