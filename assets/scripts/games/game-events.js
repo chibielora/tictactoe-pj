@@ -124,7 +124,6 @@ const addHandlers = () => {
   $('#game-index').on('click', onIndexGames)
   $('.square').on('click', onUpdateGame)
   // $('#total-score').on('change', totalScore)
-  // $('#total-score').on( ,totalScore)
 }
 
 function darkMode () {

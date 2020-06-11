@@ -23,7 +23,7 @@ const onIndexSuccess = function (data) {
   $('#message').text('All games successfully received')
   $('#message').removeClass()
   $('#message').addClass('success')
-  $('#total-score').text('You have played ' + data.games.length + ' games. ')
+  $('#total-score').text('You have played ' + data.games.length + ' games.')
   console.log('onIndexSuccess ran. Data is :', data.games.length)
   console.log('Only complete games: ', data.games.filter(game => {
     return game.over
