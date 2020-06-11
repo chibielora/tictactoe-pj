@@ -127,7 +127,13 @@ const addHandlers = () => {
   // $('#total-score').on( ,totalScore)
 }
 
+function darkMode () {
+  const element = document.body
+  element.classList.toggle('.dark-mode')
+}
+
 module.exports = {
   onIndexGames,
-  addHandlers
+  addHandlers,
+  darkMode
 }
