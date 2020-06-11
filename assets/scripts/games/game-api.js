@@ -25,16 +25,6 @@ const indexGame = function () {
   })
 }
 
-const showGame = function () {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.game._id,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
 const updateGame = function (cellIndex, cellValue, over) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
@@ -58,6 +48,5 @@ const updateGame = function (cellIndex, cellValue, over) {
 module.exports = {
   createGame,
   indexGame,
-  showGame,
   updateGame
 }

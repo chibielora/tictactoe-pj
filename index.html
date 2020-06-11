@@ -21,7 +21,7 @@
         <legend>Sign in!</legend>
         <input type="text" name="credentials[email]" placeholder="Email">
         <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="submit" value="Sign in! ">
+        <input type="submit" value=" Sign in! ">
       </fieldset>
     </form>
     <form id="sign-up" class="border">
@@ -30,7 +30,7 @@
         <input type="text" name="credentials[email]" placeholder="Email">
         <input type="password" name="credentials[password]" placeholder="Password">
         <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-        <input type="submit" value="Sign up! ">
+        <input type="submit" value=" Sign up! ">
       </fieldset>
     </form>
   </div>
@@ -41,13 +41,13 @@
           <legend class="small-screen">Change Password!</legend>
           <input class="small-screen" type="password" name="passwords[old]" placeholder="Old Password">
           <input class="small-screen" type="password" name="passwords[new]" placeholder="New Password">
-          <input class="small-screen" type="submit" value="Change Password! ">
+          <input class="small-screen" type="submit" value=" Change Password! ">
         </fieldset>
       </form>
       <form id="sign-out" class="border">
         <fieldset>
           <legend class="small-screen change-order-sign-out">Sign Out!</legend>
-          <input class="small-screen" type="submit" value="Sign out! ">
+          <input class="small-screen" type="submit" value=" Sign out! ">
         </fieldset>
       </form>
     </div>
@@ -56,14 +56,13 @@
       <form id="find-game" class="border">
         <fieldset>
           <legend class="small-screen">Find previous games</legend>
-          <!-- <input type="submit" value="See Previous "> -->
-          <input class="small-screen" type="text" name="game[id]" placeholder="Insert game id">
+          <input class="small-screen" id="game-index" type="submit" value=" See Previous ">
         </fieldset>
       </form>
       <!-- Create a new Game -->
       <form id="play-game" class="border">
         <legend class="small-screen">Start a new Game!</legend>
-        <input id="start-button" type="submit" value="Game Start! " name="game[new]">
+        <input id="start-button" type="submit" value=" Game Start! " name="game[new]">
       </form>
     </div>
 <!-- This is where the board goes -->
@@ -83,7 +82,8 @@
       </div><br>
       <!-- <p class="player"></p>
       <p class="computer"></p> -->
-      <p class="total">Total Games</p>
+      <p>Total Games Played</p>
+      <div class="total-score" id="total-score">0</div>
     </div>
     <!-- Reset Button -->
     <div class="wins-game" id="winning-message">
