@@ -3,6 +3,8 @@
 const config = require('../config')
 const store = require('../store')
 
+// Called in events for AJAX requests.
+
 const createGame = function () {
   return $.ajax({
     url: config.apiUrl + '/games',

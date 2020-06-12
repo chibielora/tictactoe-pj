@@ -17,11 +17,6 @@ body {
   position: relative;
 }
 
-// .dark-mode {
-//   background-color: black;
-//   color: white;
-// }
-
 h1 {
   margin-top: 20px;
 }
@@ -184,9 +179,12 @@ occupied:hover {
 legend {
   text-align: justify;
 }
+
+// Dark Mode Amusement Park
 .darkmode-toggle {
   z-index: 3;
 }
+
 .darkmode--activated {
   position: relative;
   z-index: 2;
@@ -207,7 +205,6 @@ legend {
     }
     }
   }
-
 
 @media screen and (max-width: 500px) {
   .square {

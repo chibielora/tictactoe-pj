@@ -2,6 +2,8 @@
 
 const store = require('../store')
 
+// This document holds my top messages, my score message, and console log errors.
+
 const onCreateSuccess = function (data) {
   $('#game-board').show()
   $('#winning-message').hide()
