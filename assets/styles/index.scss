@@ -184,6 +184,30 @@ occupied:hover {
 legend {
   text-align: justify;
 }
+.darkmode-toggle {
+  z-index: 3;
+}
+.darkmode--activated {
+  position: relative;
+  z-index: 2;
+  h1, h5, p {
+    color: white;
+  }
+  .total-score {
+    color: white;
+  }
+  .square {
+    border-color: white;
+    .o::before {
+      background-color: transparent;
+    }
+    &::before, &::after {
+      background-color: white;
+      border-color: white;
+    }
+    }
+  }
+
 
 @media screen and (max-width: 500px) {
   .square {
