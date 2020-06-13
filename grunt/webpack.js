@@ -25,7 +25,8 @@ module.exports = {
         $: 'jquery',
         jQuery: 'jquery',
         'window.jQuery': 'jquery'
-      })
+      }),
+      new webpack.SourceMapDevToolPlugin({ exclude: ['popper.js'] })
     ],
 
     module: {
