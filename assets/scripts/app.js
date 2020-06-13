@@ -7,6 +7,7 @@
 // require('./example')
 const authEvents = require('./auth/events')
 const gameEvents = require('./games/game-events')
+const Darkmode = require('darkmode-js')
 $(() => {
   // your JS code goes here
   authEvents.addHandlers()
@@ -14,4 +15,6 @@ $(() => {
   // Initial UI setup
   $('#game-board').hide()
   $('#winning-message').hide()
+
+  new Darkmode().showWidget()
 })
