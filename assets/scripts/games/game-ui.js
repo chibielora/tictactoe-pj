@@ -10,15 +10,12 @@ const onCreateSuccess = function (data) {
   $('.square').removeClass('x o')
   store.game = data.game
   store.game.currentTurn = 'x'
-  console.log(store)
-  console.log('onCreateSuccess ran. Data is :', data)
 }
 
-const onCreateFailure = function (error) {
+const onCreateFailure = function () {
   $('#message').text('Error on creating game')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onCreateFailure ran. Error is :', error)
 }
 
 const onIndexSuccess = function (data) {
@@ -26,31 +23,24 @@ const onIndexSuccess = function (data) {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('#total-score').text('You have played ' + data.games.length + ' games.')
-  console.log('onIndexSuccess ran. Data is :', data.games.length)
-  console.log('Only complete games: ', data.games.filter(game => {
-    return game.over
-  }))
 }
 
-const onIndexFailure = function (error) {
+const onIndexFailure = function () {
   $('#message').text('Error on getting games')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onIndexFailure ran. Error is :', error)
 }
 
 const onUpdateSuccess = function (xTurn, data) {
   $('#message').text(xTurn ? "X's turn" : "O's turn")
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('Game successfully updated')
 }
 
-const onUpdateFailure = function (error) {
+const onUpdateFailure = function () {
   $('#message').text('Error on updating game')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onUpdateFailure ran. Error is :', error)
 }
 
 const onInvalidSpace = function () {
