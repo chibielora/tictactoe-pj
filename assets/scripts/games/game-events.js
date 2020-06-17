@@ -30,7 +30,6 @@ const onCreateGame = function (event) {
       xTurn = true
     })
     .catch(ui.onCreateFailure)
-  console.log('onCreateGame ran!')
 }
 
 // If not X, then O will be next.
@@ -46,7 +45,6 @@ function placeIcon (square, currentPlayer) {
 // Runs while onCreateGame exists and tracks the board to send AJAX request to server
 const onUpdateGame = function (e) {
   event.preventDefault()
-  console.log('onUpdateGame ran!')
   // Game logic here
   const square = e.target
   const currentPlayer = xTurn ? X : O
@@ -104,7 +102,6 @@ function gameOver (draw) {
 // Calls for ui message for total games
 const onIndexGames = function (event) {
   event.preventDefault()
-  console.log('onIndexGames ran!')
   api.indexGame()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
