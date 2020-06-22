@@ -19,6 +19,8 @@ body {
 
 h1 {
   margin-top: 20px;
+  font-family: 'Monoton';
+  font-size: 30px;
 }
 
 p {
@@ -80,7 +82,7 @@ grid-template-columns: repeat(3, auto);
   position: absolute;
   width: calc(var(--mark-size) * .15);
   height: var(--mark-size);
-  background-color: black;
+  background-color: lightcoral;
 }
 
 .square.x::before {
@@ -95,7 +97,7 @@ grid-template-columns: repeat(3, auto);
   content: '';
   position: absolute;
   border-radius: 50%;
-  border: calc(var(--mark-size) * .15) solid black;
+  border: calc(var(--mark-size) * .15) solid lightblue;
   width: var(--mark-size);
   height: var(--mark-size);
 }
@@ -196,12 +198,13 @@ legend {
   }
   .square {
     border-color: white;
-    .o::before {
+    &.o::before {
       background-color: transparent;
+      border-color: blue;
     }
     &::before, &::after {
-      background-color: white;
-      border-color: white;
+      background-color: red;
+
     }
     }
   }
