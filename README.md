@@ -6,7 +6,7 @@ The goal of this game is to emulate a simple board of tic-tac-toe and be able to
 
 - JavaScript
 - jQuery
-- [Dark Mode technology by](https://darkmodejs.learn.uno/)
+- Dark Mode technology by [https://darkmodejs.learn.uno/]
 - HTML
 - CSS / Sass
 - Ajax
@@ -22,7 +22,7 @@ There's still a lot to work on the alerts and messages responses, especially the
 
 ## Wireframes
 
-[Project Wireframes](https://i.imgur.com/rba3yVm.jpg)
+![Project Wireframes](https://i.imgur.com/rba3yVm.jpg)
 
 ### User Stories
 
