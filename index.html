@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Monoton' rel='stylesheet'>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  
+</head>
+<body class="dark-mode">
+<!-- This is where the sign up page will go -->
+  <p id="message"></p>
+  <div class="hide-game" id="logged-out-screen">
+    <form id="sign-in" class="border">
+      <fieldset>
+        <legend>Sign in!</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="submit" value=" Sign in! ">
+      </fieldset>
+    </form>
+    <form id="sign-up" class="border">
+      <fieldset>
+        <legend>Sign up!</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input type="submit" value=" Sign up! ">
+      </fieldset>
+    </form>
+  </div>
+  <div class="show-game" id="logged-in-screen">
+    <div class="flex-row">
+      <form id="change-password" class="border change-order-pw">
+        <fieldset>
+          <legend class="small-screen">Change Password!</legend>
+          <input id="old-password" class="small-screen" type="password" name="passwords[old]" placeholder="Old Password">
+          <input id="new-password" class="small-screen" type="password" name="passwords[new]" placeholder="New Password">
+          <input class="small-screen" type="submit" value=" Change Password! ">
+        </fieldset>
+      </form>
+      <form id="sign-out" class="border">
+        <fieldset>
+          <legend class="small-screen change-order-sign-out">Sign Out!</legend>
+          <input class="small-screen" type="submit" value=" Sign out! ">
+        </fieldset>
+      </form>
+    </div>
+<!-- Show previous games -->
+    <div class="flex-row">
+      <form id="find-game" class="border">
+        <fieldset>
+          <legend class="small-screen">See score</legend>
+          <input class="small-screen" id="game-index" type="submit" value=" See Score ">
+        </fieldset>
+      </form>
+      <!-- Create a new Game -->
+      <form id="play-game" class="border">
+        <legend class="small-screen">Start a new Game!</legend>
+        <input id="start-button" type="submit" value=" Game Start! " name="game[new]">
+      </form>
+    </div>
+<!-- This is where the board goes -->
+    <div class="main" id="game-board">
+      <div class="total-score" id="total-score">Press button to review score</div>
+      <h1 class="fun-font">Tic-Tac-Toe<h5>by Elorha Newcomb</h5></h1><br>
+        <p class="invalid" id="invalid-move"></p>
+        <div class="ttt-container" id="container">
+          <div class="square" data-index="0"></div>
+          <div class="square" data-index="1"></div>
+          <div class="square" data-index="2"></div>
+          <div class="square" data-index="3"></div>
+          <div class="square" data-index="4"></div>
+          <div class="square" data-index="5"></div>
+          <div class="square" data-index="6"></div>
+          <div class="square" data-index="7"></div>
+          <div class="square" data-index="8"></div>
+      </div><br>
+      <!-- <p class="player"></p>
+      <p class="computer"></p> -->
+    </div>
+<!-- Reset Button -->
+    <div class="wins-game" id="winning-message">
+      <div id="wins-game-text"></div>
+      <button id="restart">Play Again!</button>
+    </div>
+  </div>
+</body>
+</html>
